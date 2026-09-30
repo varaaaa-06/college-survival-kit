@@ -1,0 +1,152 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vara's College Survival Kit</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👻</text></svg>">
+</head>
+<body>
+  <!-- floating stars background -->
+<div class="starfield" aria-hidden="true">
+  <span class="star star-silver">★</span>
+  <span class="star star-gold">✦</span>
+  <span class="star star-silver">✧</span>
+  <span class="star star-gold">★</span>
+  <span class="star star-silver">✦</span>
+  <span class="star star-gold">✧</span>
+  <span class="star star-silver">★</span>
+  <span class="star star-gold">✦</span>
+  <span class="star star-silver">✧</span>
+  <span class="star star-gold">★</span>
+</div>
+  <h1> Vara's College Survival Kit</h1>
+  <p class="subtitle">For a student who is enrolled. Technically.</p>
+
+  <section>
+    <h2> Today's Chaos Level</h2>
+    <input type="range" min="1" max="100" value="5" id="chaosSlider">
+    <div class="chaos-label" id="chaosLabel">Surviving</div>
+    <button id="logChaosBtn">Log it</button>
+    <p class="log-line" id="chaosLog">Nothing logged yet.</p>
+  </section>
+
+  <section>
+    <h2> Next Deadline</h2>
+    <div class="form-row">
+      <input type="text" id="deadlineName" placeholder="What's due?">
+      <input type="date" id="deadlineDate">
+      <button id="setDeadlineBtn">Set it</button>
+    </div>
+    <div id="deadlineOutput">
+      <div class="deadline overdue">
+        python assignment<br>
+        -19 days left<br>
+        <span style="font-style:italic;color:#bbb;">This one's overdue. It's okay. Breathe.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2> How Cooked Am I?</h2>
+    <button id="cookBtn">Judge me</button>
+    <p class="verdict" id="cookOutput">Today you are powered entirely by coffee and deadlines.</p>
+  </section>
+
+  <section>
+    <h2>Labour To Do (no wages)</h2>
+    <div class="form-row">
+      <input type="text" id="todoInput" placeholder="Add a task...">
+      <button id="addTodo">Add</button>
+    </div>
+    <ul id="todoList"></ul>
+  </section>
+
+  <section>
+    <h2>Stu(dying) Hours</h2>
+    <div class="form-row">
+      <input type="text" id="studySubject" placeholder="Subject (e.g. Python)">
+      <input type="number" id="studyHours" placeholder="Hours" min="0" step="0.5">
+      <button id="addStudy">Log it</button>
+    </div>
+    <p id="studyTotals"></p>
+    <ul id="studyList"></ul>
+  </section>
+
+  <section>
+    <h2>Notes from an avoidant human</h2>
+    <textarea id="journalInput" rows="4" placeholder="How did today go?"></textarea>
+    <button id="saveJournal">Save entry</button>
+    <p id="journalStatus"></p>
+    <ul id="journalList"></ul>
+  </section>
+
+  <section class="card">
+    <h2>Excuse Generator 🎭</h2>
+    <p class="sub">For when you need a reason. Any reason.</p>
+    <button id="excuseBtn">Generate Excuse</button>
+    <div id="excuseOutput" class="excuse-box">Click the button, bestie.</div>
+    <button id="copyExcuseBtn" class="ghost-btn">Copy to clipboard</button>
+  </section>
+
+  <section class="card">
+    <h2>Days Until They Kick Me Out 💀</h2>
+    <p class="sub">Anxiety, but make it a dashboard.</p>
+
+    <div class="kickout-display">
+      <div class="big-number" id="absencesLeft">--</div>
+      <div class="big-label">absences left before trouble</div>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="kickout-controls">
+      <button id="missedBtn">+1 Missed</button>
+      <button id="attendedBtn" class="ghost-btn">+1 Attended</button>
+      <button id="resetBtn" class="ghost-btn">Reset</button>
+    </div>
+
+    <p class="verdict-line" id="kickoutVerdict">Log something, coward.</p>
+  </section>
+
+  <!-- ============ Y2K EXTRAS ============ -->
+
+<!-- Under Construction banner -->
+<div class="construction-banner">
+  <span class="construction-gif">🚧</span>
+  <span class="blink">⚠️ THIS SITE IS UNDER CONSTRUCTION ⚠️</span>
+  <span class="construction-gif">🚧</span>
+</div>
+<p class="construction-note">
+  Last updated: <span id="lastUpdated">--</span> · Best viewed at 800×600 · Optimized for Netscape Navigator 4.0
+</p>
+
+<!-- Guestbook -->
+<section class="card guestbook">
+  <h2> Sign My Guestbook!!!</h2>
+  <p class="sub">Leave a message or share your best college tips</p>
+
+  <div class="form-row">
+    <input type="text" id="guestName" placeholder="Your name (or a fake one)">
+  </div>
+  <div class="form-row">
+    <textarea id="guestMessage" rows="2" placeholder="Say something "></textarea>
+  </div>
+  <button id="signGuestbook">Sign it ✨</button>
+
+  <ul id="guestbookList" class="guestbook-list"></ul>
+</section>
+
+<!-- Hidden easter egg element for cursor trail -->
+<div id="cursorTrail"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+   

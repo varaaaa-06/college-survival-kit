@@ -1,0 +1,933 @@
+/* ============================================================
+   VARA'S COLLEGE SURVIVAL KIT — Y2K EDITION
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #c294ed;
+  --bg2: #8711e9;
+  --panel: #f0e6ff;
+  --panel-shadow: #260150;
+  --hot-pink: #ff2fb9;
+  --lime: #b8ff3d;
+  --cyan: #00f0ff;
+  --yellow: #ffe600;
+  --purple: #9b4dff;
+  --text: #230241;
+  --text-dim: #5c3d8f;
+  --border: #000;
+  --shadow: 4px 4px 0 #000;
+}
+
+body {
+  font-family: "Fredoka", "Comic Sans MS", cursive;
+  color: var(--text);
+  background: var(--bg);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 47, 185, 0.08) 0, rgba(255, 47, 185, 0.08) 2px, transparent 2px, transparent 12px),
+    repeating-linear-gradient(-45deg, rgba(0, 240, 255, 0.08) 0, rgba(0, 240, 255, 0.08) 2px, transparent 2px, transparent 12px),
+    linear-gradient(180deg, #1a0033 0%, #2d0052 100%);
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 40px 20px 100px;
+  max-width: 760px;
+  margin: 0 auto;
+  min-height: 100vh;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><polygon points='2,2 2,22 8,17 12,26 16,24 12,15 20,15' fill='white' stroke='black' stroke-width='1.5'/></svg>") 2 2, auto;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+h1 {
+  font-family: "Fredoka", "Comic Sans MS", cursive;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--yellow);
+  text-align: center;
+  text-shadow:
+    2px 2px 0 var(--hot-pink),
+    4px 4px 0 var(--purple),
+    6px 6px 0 #000,
+    0 0 22px rgba(255, 47, 185, 0.6);  /* 👈 soft pink glow */
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+  animation: wiggle 3s ease-in-out infinite;
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--cyan);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 0 #000;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   SECTIONS AS Y2K PANELS
+   ============================================================ */
+
+section,
+.card {
+  background: var(--panel);
+  border: 3px solid var(--border);
+  border-radius: 6px;
+  padding: 22px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+  position: relative;
+  background-image:
+    radial-gradient(circle at 8px 8px, rgba(155, 77, 255, 0.15) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 24px 24px, rgba(255, 47, 185, 0.12) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  height: 22px;
+  background: linear-gradient(90deg, var(--hot-pink), var(--purple), var(--cyan), var(--lime), var(--yellow));
+  border: 3px solid var(--border);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  z-index: 0;
+}
+
+section > * {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  padding-top: 40px;
+}
+
+h2 {
+  font-family: "Fredoka", "Comic Sans MS", cursive;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+h2 + .sub {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+/* ============================================================
+   INPUTS — chunky retro style
+   ============================================================ */
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  background: #fff;
+  border: 3px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  width: 100%;
+  box-shadow: inset 2px 2px 0 rgba(155, 77, 255, 0.15);
+  transition: all 0.1s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--hot-pink);
+  box-shadow: inset 2px 2px 0 rgba(255, 47, 185, 0.2), 0 0 0 3px var(--lime);
+}
+
+input[type="date"] {
+  color-scheme: light;
+  font-family: "Courier New", monospace;
+}
+
+textarea {
+  font-family: "Courier New", monospace;
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   BUTTONS — glossy Y2K
+   ============================================================ */
+
+button {
+  font-family: "Fredoka", "Comic Sans MS", cursive;
+  font-weight: 900;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: linear-gradient(180deg, #ff6ec7 0%, var(--hot-pink) 45%, #c7007c 100%);
+  border: 3px solid var(--border);
+  border-radius: 20px;
+  padding: 10px 22px;
+  cursor: pointer;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.35);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.55),
+    inset 0 -3px 0 rgba(0,0,0,0.25),
+    3px 3px 0 var(--border);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  white-space: nowrap;
+}
+
+button:hover {
+  transform: translate(1px, 1px);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.6),
+    inset 0 -3px 0 rgba(0,0,0,0.25),
+    2px 2px 0 var(--border);
+}
+
+button:active {
+  transform: translate(3px, 3px);
+  box-shadow:
+    inset 0 2px 0 rgba(0,0,0,0.2),
+    0 0 0 var(--border);
+}
+
+/* ghost buttons — lime green */
+button.ghost,
+.ghost-btn {
+  background: linear-gradient(180deg, #d9ff7a 0%, var(--lime) 50%, #7fb800 100%);
+  color: var(--text);
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+}
+
+/* danger */
+button.danger {
+  background: linear-gradient(180deg, #ff8080 0%, #ef4444 50%, #991b1b 100%);
+}
+
+/* ============================================================
+   FORM ROWS
+   ============================================================ */
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.form-row input {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* ============================================================
+   CHAOS SLIDER — Y2K dial
+   ============================================================ */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(180deg, #d0c0ee 0%, #b39de0 100%);
+  border: 3px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  padding: 0;
+  margin: 12px 0 10px;
+  cursor: pointer;
+  box-shadow: inset 2px 2px 0 rgba(0,0,0,0.15);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 35% 30%, #fff 0%, var(--hot-pink) 40%, #7a0060 100%);
+  border: 3px solid var(--border);
+  border-radius: 50%;
+  cursor: grab;
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 35% 30%, #fff 0%, var(--hot-pink) 40%, #7a0060 100%);
+  border: 3px solid var(--border);
+  border-radius: 50%;
+  cursor: grab;
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+.chaos-label {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--yellow);
+  border: 2px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  box-shadow: 2px 2px 0 var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   VERDICT / JOKE TEXT — like a quote card
+   ============================================================ */
+
+.verdict {
+  font-style: italic;
+  color: var(--text);
+  background: rgba(0, 240, 255, 0.15);
+  border-left: 6px solid var(--cyan);
+  border-top: 2px dashed var(--border);
+  border-bottom: 2px dashed var(--border);
+  padding: 12px 16px;
+  margin-top: 14px;
+  font-size: 0.95rem;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ============================================================
+   TO-DO LIST
+   ============================================================ */
+
+ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-family: "Courier New", monospace;
+  font-size: 0.92rem;
+  box-shadow: 2px 2px 0 var(--purple);
+  transition: transform 0.1s ease;
+}
+
+li:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--purple);
+}
+
+li input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--hot-pink);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+li.done,
+li span.done {
+  text-decoration: line-through;
+  color: #999;
+}
+
+li button {
+  background: var(--hot-pink);
+  color: #fff;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 0.75rem;
+  line-height: 1;
+  font-weight: 900;
+  margin-left: auto;
+  box-shadow: 1px 1px 0 var(--border);
+  text-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li button:hover {
+  background: #c7007c;
+  transform: none;
+}
+
+/* ============================================================
+   DEADLINE / COUNTDOWN DISPLAY
+   ============================================================ */
+
+.deadline {
+  font-family: "Fredoka", "Comic Sans MS", cursive;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 14px;
+  background: #fff;
+  border: 2px dashed var(--border);
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.deadline strong {
+  font-family: "Fredoka", "Comic Sans MS", cursive;
+  font-size: 1.05rem;
+  color: var(--purple);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.deadline.overdue {
+  background: #ffe0e0;
+  border-color: #c7007c;
+  color: #7a0038;
+}
+
+.deadline.soon {
+  background: #fff8c0;
+  border-color: var(--yellow);
+  color: #7a5a00;
+}
+
+.deadline em {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.85;
+}
+
+/* generic log lines */
+.log-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(184, 255, 61, 0.25);
+  border-left: 4px solid var(--lime);
+  border-radius: 0 4px 4px 0;
+}
+
+.log-line strong {
+  color: var(--text);
+}
+
+/* ============================================================
+   EXCUSE BOX
+   ============================================================ */
+
+.excuse-box {
+  background: #fff;
+  border: 3px dashed var(--purple);
+  padding: 18px;
+  margin: 14px 0;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-style: italic;
+  color: var(--text);
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 3px 3px 0 rgba(155, 77, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.excuse-box.pop {
+  animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pop {
+  0% { transform: scale(1) rotate(0); }
+  40% { transform: scale(1.04) rotate(-0.5deg); border-color: var(--hot-pink); }
+  70% { transform: scale(0.99) rotate(0.5deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* ============================================================
+   KICKOUT COUNTER
+   ============================================================ */
+
+.kickout-display {
+  text-align: center;
+  padding: 20px 0 10px;
+}
+
+.big-number {
+  font-family: "Comic Sans MS", cursive;
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--hot-pink);
+  text-shadow:
+    3px 3px 0 var(--yellow),
+    6px 6px 0 var(--border);
+  transition: color 0.3s ease;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.big-label {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-top: 10px;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.progress-track {
+  height: 22px;
+  background: #d0c0ee;
+  border: 3px solid var(--border);
+  border-radius: 11px;
+  overflow: hidden;
+  margin: 16px 0;
+  box-shadow: inset 2px 2px 0 rgba(0,0,0,0.15);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--lime), var(--yellow), var(--hot-pink), #c7007c);
+  width: 0%;
+  transition: width 0.5s ease;
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.kickout-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.verdict-line {
+  font-style: italic;
+  color: var(--text-dim);
+  margin-top: 16px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   SCROLLBAR — Y2K chrome
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg2);
+  border-left: 2px solid var(--border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--hot-pink), var(--purple));
+  border: 2px solid var(--border);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff6ec7, #b06bff);
+}
+
+/* ============================================================
+   MARQUEE-STYLE TOP BANNER (optional — add <div class="marquee">)
+   ============================================================ */
+
+.marquee {
+  background: var(--border);
+  color: var(--lime);
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  padding: 6px 0;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border: 2px solid var(--cyan);
+  border-radius: 4px;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  body {
+    padding: 24px 12px 60px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+    text-shadow:
+      1.5px 1.5px 0 var(--hot-pink),
+      3px 3px 0 var(--purple),
+      4.5px 4.5px 0 #000;
+  }
+
+  section, .card {
+    padding: 18px 16px;
+    padding-top: 36px;
+    box-shadow: 3px 3px 0 #000;
+  }
+
+  .big-number {
+    font-size: 3.5rem;
+    text-shadow:
+      2px 2px 0 var(--yellow),
+      4px 4px 0 var(--border);
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row input,
+  .form-row button {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   FADE-IN ON LOAD
+   ============================================================ */
+
+section, .card {
+  animation: fadeUp 0.5s ease backwards;
+}
+
+section:nth-child(1) { animation-delay: 0.04s; }
+section:nth-child(2) { animation-delay: 0.08s; }
+section:nth-child(3) { animation-delay: 0.12s; }
+section:nth-child(4) { animation-delay: 0.16s; }
+section:nth-child(5) { animation-delay: 0.20s; }
+section:nth-child(6) { animation-delay: 0.24s; }
+section:nth-child(7) { animation-delay: 0.28s; }
+section:nth-child(8) { animation-delay: 0.32s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px) rotate(-0.3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+/* ============================================================
+   Y2K EXTRAS
+   ============================================================ */
+
+/* ===== UNDER CONSTRUCTION BANNER ===== */
+
+.construction-banner {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--yellow) 0,
+    var(--yellow) 20px,
+    #000 20px,
+    #000 40px
+  );
+  border: 3px solid #000;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  box-shadow: 4px 4px 0 #000;
+  font-family: "Comic Sans MS", cursive;
+  font-weight: 900;
+  font-size: 1rem;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.construction-banner .blink {
+  background: #000;
+  color: var(--yellow);
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+
+.construction-gif {
+  font-size: 1.4rem;
+  animation: spin 3s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+.construction-note {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 40px;
+  letter-spacing: 0.03em;
+}
+
+/* ===== BLINKING TEXT (the sacred Y2K art form) ===== */
+
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0.15; }
+}
+
+/* ===== GUESTBOOK ===== */
+
+.guestbook {
+  background: var(--panel);
+}
+
+.guestbook-list {
+  margin-top: 20px;
+}
+
+.guestbook-list li {
+  display: block;
+  padding: 12px 16px;
+  background: #fff;
+  border: 2px solid #000;
+  border-left: 8px solid var(--hot-pink);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  box-shadow: 2px 2px 0 var(--purple);
+  position: relative;
+}
+
+.guestbook-list li:nth-child(3n+2) { border-left-color: var(--cyan); box-shadow: 2px 2px 0 var(--hot-pink); }
+.guestbook-list li:nth-child(3n+3) { border-left-color: var(--lime); box-shadow: 2px 2px 0 var(--cyan); }
+
+.guestbook-list li .guest-name {
+  font-family: "Comic Sans MS", cursive;
+  font-weight: 900;
+  color: var(--purple);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.guestbook-list li .guest-date {
+  font-size: 0.72rem;
+  color: #999;
+  font-style: italic;
+}
+
+.guestbook-list li .guest-message {
+  margin-top: 6px;
+  color: var(--text);
+}
+
+.guestbook-empty {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-dim);
+  padding: 20px 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+}
+
+/* ===== BLINKING KICKOUT AT ZERO ===== */
+
+.big-number.critical {
+  animation: criticalBlink 0.6s steps(2, start) infinite;
+  color: #ff0000 !important;
+  text-shadow:
+    3px 3px 0 var(--yellow),
+    6px 6px 0 var(--border),
+    0 0 20px #ff0000;
+}
+
+@keyframes criticalBlink {
+  0%, 50% { opacity: 1; transform: scale(1); }
+  50.01%, 100% { opacity: 0.35; transform: scale(0.97); }
+}
+
+/* ===== CURSOR TRAIL ===== */
+
+.trail-dot {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, var(--hot-pink) 45%, var(--purple) 100%);
+  border: 2px solid #000;
+  box-shadow: 0 0 8px var(--hot-pink), 0 0 14px var(--purple);
+  transform: translate(-50%, -50%);
+  animation: trailFade 0.7s ease-out forwards;
+  mix-blend-mode: screen;
+}
+
+@keyframes trailFade {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+}
+/* ============================================================
+   FLOATING SILVER & GOLD STARS
+   ============================================================ */
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  font-size: 1.4rem;
+  opacity: 0.75;
+  animation: floatUp 18s linear infinite;
+  user-select: none;
+  text-shadow: 0 0 6px currentColor;
+}
+
+/* silver */
+.star-silver {
+  color: #d8d8e8;
+  text-shadow:
+    0 0 6px #ffffff,
+    0 0 12px #c0c8e0;
+}
+
+/* gold */
+.star-gold {
+  color: #ffe27a;
+  text-shadow:
+    0 0 6px #fff5b0,
+    0 0 14px #ffcc33,
+    0 0 22px #ffaa00;
+}
+
+/* each star: different start position, delay, size, and speed */
+.star:nth-child(1)  { left: 4%;   animation-delay: 0s;    animation-duration: 22s; font-size: 1.2rem; }
+.star:nth-child(2)  { left: 14%;  animation-delay: -3s;   animation-duration: 26s; font-size: 1.6rem; }
+.star:nth-child(3)  { left: 24%;  animation-delay: -7s;   animation-duration: 20s; font-size: 1.0rem; }
+.star:nth-child(4)  { left: 34%;  animation-delay: -11s;  animation-duration: 24s; font-size: 1.8rem; }
+.star:nth-child(5)  { left: 44%;  animation-delay: -5s;   animation-duration: 28s; font-size: 1.3rem; }
+.star:nth-child(6)  { left: 54%;  animation-delay: -14s;  animation-duration: 21s; font-size: 1.5rem; }
+.star:nth-child(7)  { left: 65%;  animation-delay: -9s;   animation-duration: 25s; font-size: 1.1rem; }
+.star:nth-child(8)  { left: 75%;  animation-delay: -2s;   animation-duration: 23s; font-size: 1.7rem; }
+.star:nth-child(9)  { left: 85%;  animation-delay: -16s;  animation-duration: 27s; font-size: 1.4rem; }
+.star:nth-child(10) { left: 93%;  animation-delay: -6s;   animation-duration: 19s; font-size: 1.2rem; }
+
+/* the actual float animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(110vh) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* twinkle on some stars for extra sparkle */
+.star:nth-child(odd) {
+  animation-name: floatUp, twinkle;
+  animation-duration: 22s, 2s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.6); }
+}
+
+/* make sure your actual content sits above the stars */
+body > h1,
+body > .subtitle,
+body > section,
+body > .card,
+body > .construction-banner,
+body > .construction-note,
+body > .marquee {
+  position: relative;
+  z-index: 2;
+}
